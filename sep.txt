@@ -1,0 +1,6 @@
+module sepehr(input w,input a,output y); //sepehr is awesome
+wire mid1 = a & w;
+wire mid2;
+mid2 = ~w;
+y = mid1 | mid2;
+endmodule

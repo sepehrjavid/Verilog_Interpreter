@@ -1,0 +1,41 @@
+=================================================
+*               Syntax result                   *
+=================================================
+
+ok
+
+=================================================
+*               Circuit Graph                   *
+=================================================
+
+NODE_INPUT_1: input_w
+NODE_INPUT_2: input_a
+NODE_OUTPUT_1: output_y
+NODE_AND_1: and
+NODE_NOT_1: not
+NODE_OR_1: or
+NODE_BRANCH_w: branch_w
+NODE_BRANCH_a: branch_a
+VECTOR_1: wire_w - NODE_INPUT_1:NODE_BRANCH_w
+VECTOR_2: wire_a - NODE_INPUT_2:NODE_BRANCH_a
+VECTOR_3: branch_w_1 - NODE_BRANCH_w:NODE_AND_1
+VECTOR_4: branch_w_2 - NODE_BRANCH_w:NODE_NOT_1
+VECTOR_5: branch_a_1 - NODE_BRANCH_a:NODE_AND_1
+VECTOR_6: mid1 - NODE_AND_1:NODE_OR_1
+VECTOR_7: or_1_out - NODE_OR_1:NODE_OUTPUT_1
+
+=================================================
+*               Module Result                   *
+=================================================
+
+output y = ( a & w ) | ( ~ w )
+
+=================================================
+*                Truth Table                    *
+=================================================
+
+   input_w   |   input_a   |   output_y   |
+    zero     |    zero     |     one      |
+    zero     |    one      |     one      |
+    one      |    zero     |     zero     |
+    one      |    one      |     one      |
